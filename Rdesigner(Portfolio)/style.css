@@ -1,4 +1,4 @@
-/*-------------------- GENERAL --------------------*/
+/*#region -------------------- GENERAL --------------------*/
 
 *, ::before, ::after{
     margin: 0;
@@ -87,7 +87,7 @@ small{
     font-size: 13px;
     font-style: italic;
 }
-
+/*-------------------- Button --------------------*/
 .button-1 {
     display: block;
     width: 100px;
@@ -111,7 +111,22 @@ small{
     background-color: var(--color7);
 }
 
-/*-------------------- HEADER --------------------*/
+.btn{
+    border: 0;
+    background: var(--color6);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.btn.btn-secondary{
+    background: transparent;
+    border: 2px solid var(--color6);
+    color: var(--color4);
+}
+/*#endregion*/
+
+/*#region -------------------- HEADER --------------------*/
 
 header{
     display: flex;
@@ -221,24 +236,9 @@ a:nth-child(3){
     display: none;
     color: var(--color6);
 }
+/*#endregion */
 
-/*-------------------- Button --------------------*/
-
-.btn{
-    border: 0;
-    background: var(--color6);
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-}
-
-.btn.btn-secondary{
-    background: transparent;
-    border: 2px solid var(--color6);
-    color: var(--color4);
-}
-
-/*-------------------- MAIN --------------------*/
+/*#region -------------------- MAIN --------------------*/
 
 /*section*/
 #home{
@@ -262,9 +262,9 @@ a:nth-child(3){
     background-size: cover;
     background-position: center;
 }
+/*#endregion*/
 
-/*-------------------- RESPONSIVE TABLETTE --------------------*/
-
+/*#region -------------------- RESPONSIVE TABLETTE --------------------*/
 @media all and (max-width: 991px) {
 
     header{
@@ -337,3 +337,4 @@ a:nth-child(3){
         display: none;
     }
 }
+/*#endregion*/
