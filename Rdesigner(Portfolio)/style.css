@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* background-color: var(--color5); */
 }
 
 html{
@@ -283,12 +284,15 @@ a:nth-child(3){
     background-size: cover;
     background-position: center;
 }
-#portfolio{
+
+#background-mokup{
+    position: relative;
+    width: 50%;
     height: 100vh;
     background: url('img/BackgroundAccueil.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: right;
 }
 /*#endregion*/
 
