@@ -248,6 +248,11 @@ a:nth-child(3){
     background-size: cover;
     background-position: center;
 }
+#home h2{
+    position: relative;
+    text-align: center;
+    margin: 100px auto;
+}
 #about{
     height: 100vh;
     background: url('img/BackgroundApropos.jpg');
