@@ -1,0 +1,339 @@
+/*-------------------- GENERAL --------------------*/
+
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    /*Couleurs*/
+    --color1: #638DA6;
+    --color2: #5B83A6;
+    --color3: #4B95D1;
+    --color4: #021010;
+    --color5: #D9DBDB;
+    --color6: #D19D4A;
+    --color7: #D5BF9C;
+
+    /*fonts*/
+    --font1:'Ubuntu', sans-serif;
+    --font2:'Oswald', Arial, sans-serif;
+}
+
+body{
+    font-family: var(--font2);
+    font-size: 15px;
+}
+
+h1{
+    font-family: var(--font1);
+    color: var(--color1);
+}
+
+h2 {
+    color: var(--color2);
+    font-size: 48px;
+}
+
+h3 {
+    font-size: 30px;
+    color: #5B83A6;
+}
+
+h4 {
+    font-size: 24px;
+    color: var(--color2);
+}
+
+p {
+    line-height: 20px;
+    color: var(--color4);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--color3);
+    text-transform: uppercase;
+}
+
+.container-grid {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-auto-rows: auto 1fr auto;
+}
+
+.wrapper {
+    display: block;
+    height: 700px;
+    margin: 0 auto;
+}
+
+.orange {
+    color: var(--color6);
+}
+
+.clear{
+    clear: both;
+}
+
+small{
+    font-size: 13px;
+    font-style: italic;
+}
+
+.button-1 {
+    display: block;
+    width: 100px;
+    height: 30px;
+    background-color: var(--color6);
+    color: var(--color4);
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin: 10px auto;
+    padding-top: 2px;
+    line-height: initial;
+    text-overflow: clip;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 0 0 72px 0;
+}
+
+.button-1:hover {
+    display: block;
+    transform: scale(1.1);
+    background-color: var(--color7);
+}
+
+/*-------------------- HEADER --------------------*/
+
+header{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    top: 0;
+    left: 0;
+    color: var(--color3);
+    padding: 0 2rem;
+    transition: all 0.5s ease-in-out;
+}
+
+#bg-header{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: var(--color4);
+    z-index: -10;
+    transition: all 0.5s ease-in-out;
+}
+/*-------------------- NAV --------------------*/
+
+nav{
+    position: relative;
+    width: 25%;
+    height:100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 2rem;
+    text-align: center;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    line-height: 75px;
+    list-style: none;
+    width: 300px;
+}
+nav li a{
+    text-transform: uppercase;
+    line-height: 50px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    /* text-align: center; */
+    color: var(--color1);
+    transition: all 0.2s ease-in-out;
+}
+nav a:hover{
+    color: var(--color3);
+    font-family: var(--font2);
+    font-weight: 300;
+    /* text-align: center; */
+}
+
+/*-------------------- Barre animation --------------------*/
+nav .animation{
+    position: absolute;
+    height:5px;
+    bottom:0;
+    z-index: 0;
+    background: var(--color6);
+    border-radius: 8px 8px 0 0;
+    transition: all .5s ease 0s;
+}
+
+/*-------------------- 1 --------------------*/
+a:nth-child(1){
+    width: 80px;
+}
+nav .start-home, a:nth-child(1):hover~.animation{
+    width: 80px;
+    left: 0;
+}
+
+/*-------------------- 2 --------------------*/
+a:nth-child(2){
+    width: 80px;
+}
+nav .start-about, a:nth-child(2):hover~.animation{
+    width: 80px;
+    left: 80px;
+}
+
+/*-------------------- 3 --------------------*/
+a:nth-child(3){
+    width: 100px;
+}
+.menu .start-portfolio, a:nth-child(3):hover~.animation{
+    width: 100px;
+    left: 160px;
+}
+
+/*-------------------- Logo --------------------*/
+.logo{
+    font-size: 2rem;
+    width:100%;
+}
+
+.toggle{
+    display: none;
+    color: var(--color6);
+}
+
+/*-------------------- Button --------------------*/
+
+.btn{
+    border: 0;
+    background: var(--color6);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.btn.btn-secondary{
+    background: transparent;
+    border: 2px solid var(--color6);
+    color: var(--color4);
+}
+
+/*-------------------- MAIN --------------------*/
+
+/*section*/
+#home{
+    height: 100vh;
+    background: url('img/BackgroundAccueil.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#about{
+    height: 100vh;
+    background: url('img/BackgroundApropos.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#portfolio{
+    height: 100vh;
+    background: url('img/BackgroundAccueil.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/*-------------------- RESPONSIVE TABLETTE --------------------*/
+
+@media all and (max-width: 991px) {
+
+    header{
+        background: transparent;
+    }
+
+    .toggle{
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        position: relative;
+        margin: auto;
+        z-index: 20;
+    }
+
+    .logo{
+        font-size: 1rem;
+        position: relative;
+        margin: auto;
+        z-index: 20;
+    }
+
+    .ouvrir{
+        display: block;
+    }
+
+    .fermer{
+        display: none;
+    }
+
+    .open .ouvrir{
+        display: none;
+    }
+
+    .open .fermer{
+        display: block;
+    }
+
+    nav{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30%;
+        height: 100vh;
+        background: var(--color4);
+        flex-direction: column;
+        margin: 0;
+        padding: 2rem;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: transform 1s ease-in-out;
+    }
+    nav ul{
+        flex-direction: column;
+        align-items: center;
+    }
+    nav li a{
+        font-size: 2rem;
+    }
+    
+    .btn{
+        font-size: 2rem;
+    }
+
+    .open nav{
+        transform: translateX(0);
+    }
+    /*-------------------- Barre animation --------------------*/
+    nav .animation{
+        display: none;
+    }
+}
