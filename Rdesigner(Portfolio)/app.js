@@ -53,13 +53,15 @@ window.addEventListener('scroll', function (e){
 
 //function apparition navbar background au scroll
 window.onscroll = function () {
-    if (document.documentElement.scrollTop >= 659 && document.documentElement.scrollTop < 1284) {
+    if (document.documentElement.scrollTop >= 659 && document.documentElement.scrollTop < 800/*1284*/) {
         document.getElementsByClassName('navbar-bg')[0].style.top = "0px";
         document.getElementsByClassName('navbar')[0].style.top = "0px";
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-95px";
     }
     else if (document.documentElement.scrollTop >= 31 && document.documentElement.scrollTop < 659) {
         document.getElementsByClassName('navbar-bg')[0].style.top = "-120px";
         document.getElementsByClassName('navbar')[0].style.top = "-120px";
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "0px";
 
     }
     else {
