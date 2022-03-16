@@ -51,9 +51,9 @@ window.addEventListener('scroll', function (e){
 
 //voir navbar
 
-//function apparition navbar background au scroll
+//function de changement au scroll
 window.onscroll = function () {
-    if (document.documentElement.scrollTop >= 659 && document.documentElement.scrollTop < 800/*1284*/) {
+    if (document.documentElement.scrollTop >= 659 && document.documentElement.scrollTop < 1416) {
         document.getElementsByClassName('navbar-bg')[0].style.top = "0px";
         document.getElementsByClassName('navbar')[0].style.top = "0px";
         document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-95px";
@@ -67,6 +67,7 @@ window.onscroll = function () {
     else {
         document.getElementsByClassName("navbar-bg")[0].style.top = "-120px";
         document.getElementsByClassName('navbar')[0].style.top = "0px";
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-95px";
     }
     scroll(loop); 
     // what is scroll() ?
