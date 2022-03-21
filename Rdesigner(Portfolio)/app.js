@@ -56,18 +56,21 @@ window.onscroll = function () {
     if (document.documentElement.scrollTop >= 659 && document.documentElement.scrollTop < 1416) {
         document.getElementsByClassName('navbar-bg')[0].style.top = "0px";
         document.getElementsByClassName('navbar')[0].style.top = "0px";
-        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-95px";
+        document.getElementsByClassName('logo')[0].style.top = "0px";
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-150px";
     }
     else if (document.documentElement.scrollTop >= 31 && document.documentElement.scrollTop < 659) {
         document.getElementsByClassName('navbar-bg')[0].style.top = "-120px";
         document.getElementsByClassName('navbar')[0].style.top = "-120px";
-        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "0px";
+        document.getElementsByClassName('logo')[0].style.top = "-120px";
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-100px";
 
     }
     else {
         document.getElementsByClassName("navbar-bg")[0].style.top = "-120px";
         document.getElementsByClassName('navbar')[0].style.top = "0px";
-        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-95px";
+        document.getElementsByClassName('logo')[0].style.top = "0px";
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-150px";
     }
     scroll(loop); 
     // what is scroll() ?
