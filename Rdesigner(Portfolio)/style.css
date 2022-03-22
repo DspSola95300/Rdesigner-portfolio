@@ -91,9 +91,6 @@ small{
 /*-------------------- Button --------------------*/
 .button-1 {
     display: block;
-    width: 100px;
-    height: 30px;
-    background-color: var(--color6);
     color: var(--color4);
     font-size: 1.1rem;
     font-weight: 300;
@@ -103,13 +100,29 @@ small{
     text-overflow: clip;
     text-align: center;
     white-space: nowrap;
-    border-radius: 0 0 72px 0;
 }
-
-.button-1:hover {
+.button-1::after{
+    content: "";
     display: block;
+    width: 100px;
+    height: 30px;
+    background-color: var(--color6);
+    margin: -29px auto;
+    border-radius: 0 0 72px 0;
+    transition: .4s;
+}
+.button-1:hover {
+    /* display: block; */
     transform: scale(1.1);
+    cursor: pointer;
+    z-index: 10;
+}
+.button-1:hover::after {
+    /* display: block; */
+    /* transform: scale(1.1); */
     background-color: var(--color7);
+    /* cursor: pointer; */
+    z-index: 9;
 }
 
 .btn{
