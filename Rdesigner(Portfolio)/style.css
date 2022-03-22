@@ -38,7 +38,7 @@ h2 {
 
 h3 {
     font-size: 30px;
-    color: #5B83A6;
+    color: var(--color2);
 }
 
 h4 {
@@ -136,11 +136,11 @@ header{
     display: flex;
     position: fixed;
     width: 100%;
-    height: 13vh;
+    height: 10vh;
     top: 0;
     left: 0;
     color: var(--color3);
-    padding: 0 2rem;
+    padding: 1rem 2rem;
     z-index: 10;
     transition: all 0.5s ease-in-out;
 }
@@ -149,12 +149,13 @@ header{
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
+    top: -120px;
     left: 0;
     background: var(--color4);
     z-index: -10;
     transition: all 0.5s ease-in-out;
 }
+
 /*-------------------- NAV --------------------*/
 
 nav{
@@ -162,12 +163,51 @@ nav{
     width: 25%;
     height:100%;
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     align-items: center;
-    margin: 0 0 0 2rem;
+    margin: 16px 0 0 0;
     text-align: center;
     transition: all 1s ease-out;
+
+    background-color: rgba(255, 255, 255, 0);
+    overflow: hidden;
 }
+
+/*#region nouveau menu*/
+.nav-item{
+    color: var(--color3);
+    font-family: var(--font2);
+    padding: 20px auto;
+    margin: 0 6px;
+    position: relative;
+}
+.nav-item::before{
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    background-color: var(--color7);
+    height: 5px;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    left: 0;
+    transition: .3s;
+}
+.nav-item:not(.is-active):hover::before{
+    bottom: -6px;
+}
+.nav-item:not(.is-active):hover{
+    color: var(--color1);
+}
+.nav-indicator{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    transition: .4s;
+    border-radius: 8px 8px 0 0;
+}
+
+/*#endregion*/
 
 nav ul{
     display: flex;
@@ -194,49 +234,12 @@ nav a:hover{
     /* text-align: center; */
 }
 
-/*-------------------- Barre animation --------------------*/
-nav .animation{
-    position: absolute;
-    height:5px;
-    bottom:0;
-    z-index: 0;
-    background: var(--color6);
-    border-radius: 8px 8px 0 0;
-    transition: all .5s ease 0s;
-}
-
-/*-------------------- 1 --------------------*/
-a:nth-child(1){
-    width: 80px;
-}
-nav .start-home, a:nth-child(1):hover~.animation{
-    width: 80px;
-    left: 0;
-}
-
-/*-------------------- 2 --------------------*/
-a:nth-child(2){
-    width: 80px;
-}
-nav .start-about, a:nth-child(2):hover~.animation{
-    width: 80px;
-    left: 80px;
-}
-
-/*-------------------- 3 --------------------*/
-a:nth-child(3){
-    width: 100px;
-}
-.menu .start-portfolio, a:nth-child(3):hover~.animation{
-    width: 100px;
-    left: 160px;
-}
 
 /*-------------------- Logo --------------------*/
 .logo{
     position: relative;
     top:0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     width:100%;
     transition: all 1s ease-out;
 }
@@ -258,12 +261,12 @@ a:nth-child(3){
     background: url('img/BackgroundAccueil.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     z-index: 0;
 }
 #home h2{
     position: relative;
-    top: 52px;
+    top: 61px;
     font-weight: normal;
     text-transform: uppercase;
     text-align: center;
@@ -476,7 +479,7 @@ p:nth-child(2) span::after{
         transform: translateX(0);
     }
     /*-------------------- Barre animation --------------------*/
-    nav .animation{
+    nav .nav-indicator{
         display: none;
     }
 }
