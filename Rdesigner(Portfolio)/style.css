@@ -41,11 +41,6 @@ h3 {
     color: var(--color2);
 }
 
-h4 {
-    font-size: 24px;
-    color: var(--color2);
-}
-
 p {
     font-size: 18px;
     line-height: 20px;
@@ -88,13 +83,13 @@ small{
     font-size: 13px;
     font-style: italic;
 }
-/*-------------------- Button --------------------*/
+/*#region--------------------Button--------------------*/
 .button-1 {
     display: block;
     color: var(--color4);
     font-size: 1.1rem;
     font-weight: 300;
-    margin: 29px auto;
+    margin: 81px auto;
     padding-top: 2px;
     line-height: initial;
     text-overflow: clip;
@@ -128,9 +123,14 @@ small{
 .btn{
     border: 0;
     background: var(--color6);
+    font-family: var(--font2);
     font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    padding: 0.1rem 1rem;
+    border-radius: 0px 0px 20px 0px;
+    float: right;
+}
+.btn:hover{
+    background-color: var(--color7);
 }
 
 .btn.btn-secondary{
@@ -138,9 +138,11 @@ small{
     border: 2px solid var(--color6);
     color: var(--color4);
 }
+/*#endregion*/
 .clear{
     clear: both;
 }
+
 /*#endregion*/
 
 /*#region -------------------- HEADER --------------------*/
@@ -284,7 +286,7 @@ nav a:hover{
     text-transform: uppercase;
     text-align: center;
     /* color: var(--color4); */
-    padding: 40px 0;
+    padding: 40px 0 0 0;
     margin: 0px;
     /* border: 1px red solid; */
 }
@@ -310,6 +312,9 @@ nav a:hover{
     background-position: center;
 }
 #presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 50%;
     height: 700px;
     float: left;
@@ -317,17 +322,22 @@ nav a:hover{
     margin: auto auto;
     padding: 200px 140px;
 }
-p{
-    color: transparent;
-    font-size: 0px;
+h4{
+
+    font-size: 24px;
+    color: var(--color2);
+
+    text-transform: uppercase;
+    /* color: transparent; */
+    /* font-size: 0px; */
 }
-p span{
+h4 span{
     display: inline-block;
     position: relative;
     overflow: hidden;
-    font-size: clamp(15px, 8vw, 18px);
+    font-size: clamp(34px, 8vw, 18px);
 }
-p span::after{
+h4 span::after{
     content: "";
     display: block;
     position: absolute;
@@ -337,19 +347,19 @@ p span::after{
     left: 0;
     transform: translateX(-10%);
 }
-p:nth-child(1){
-    font-weight: 300;
+h4:nth-child(1){
+    /* font-weight: 300; */
     animation: txt-appearance 0s 1s forwards;
 }
-p:nth-child(2){
+h4:nth-child(2){
     animation: txt-appearance 0s 1.25s forwards;
 }
-p:nth-child(1) span::after{
+h4:nth-child(1) span::after{
     background: salmon;
     animation: slide-in 0.75s ease-out forwards,
     slide-out 0.75s 1s ease-out forwards;
 }
-p:nth-child(2) span::after{
+h4:nth-child(2) span::after{
     background: royalblue;
     animation: slide-in 0.75s 0.3s ease-out forwards,
     slide-out 0.75s 1.3s ease-out forwards;
@@ -411,18 +421,177 @@ p:nth-child(2) span::after{
 /*#endregion*/
 
 /*#region -------------------- FORMULAIRE --------------------*/
-.formulaire{
+input::placeholder, textarea::placeholder{
+    font-family: var(--font2);
+    font-size: 11px;
+    color: var(--color7);
+    padding-left: 8px;
+}
+.close-form{
     position: absolute;
-    top: 50px;
-    left: 300px;
-    width: 1164px;
-    height: 654px;
-    align-content: center;
+    top: -10px;
+    right: -10px;
+    color: var(--color4);
     background-color: var(--color6);
+    padding: 2px 5px;
+    border-radius: 18px;
+    transition: all .4s ease-out;
+}
+.close-form:hover{
+    /* color:var(--color2); */
+    background-color: var(--color7);
+}
+.formulaire{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: max-content;
+    height: max-content;
+    transform: translate(-50%, -50%);
+    margin: auto auto;
+    padding: 21px;
+    display: flex;
+    align-content: center;
+    background-color: var(--color5);
+    border-radius: 3px;
+    box-shadow: 0px 10px 40px var(--color4);
     z-index: 100;
+}
+form p{
+    color: var(--color1);
+    /* flex-direction: row; */
+}
+#information{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#information p{
+    white-space: pre;
+}
+.block{
+ display: inline-flex;
+ margin: 5px 0;
+}
+.champ-nom, .champ-mail, #champ-tel{
+    border-radius: 3px;
+    border: none;
+    margin: 3px;
+    display: block;
+    height: 21px;
+}
+.obligatoire::after{
+    content: "Champ obligatoire";
+    position:relative;
+    top: -18px;
+    right: 60px;
+    width: 0;
+    white-space: nowrap;
+    font-size: 8px;
+    color: var(--color4);
+    /* display: block; */
+}
+#text-client{
+    border-radius: 3px;
+    border: none;
+    margin: 9px;
+    display: block;
+    height: 76px;
+}
+
+#demande{
+    display: flex;
+    flex-direction: column;
+}
+
+#check-list{
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    height: 100%;
+    margin: 9px;
+    padding: 3px 18px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+.checkbox::before{
+    background-color: var(--color6);
+    content: "";
+    position: absolute;
+    display: block;
+    width: 6rem;
+    height: 1.5rem;
+    border-radius: 18px;
+    z-index: -1;
+    overflow: hidden;
+
+}
+.checkbox::after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 6rem;
+    height: 1.5rem;
+    /* top: 50%;
+    left: 50%; */
+    border-radius: 18px;
+    background-color: var(--color2);
+    z-index: -1;
+    transform: translateX(-6rem);
+
+}
+.checkbox:hover::after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 6rem;
+    height: 1.5rem;
+    border-radius: 18px;
+    background-color: var(--color2);
+    z-index: 0;
+
+    transform: translateX(-6rem);
+}
+
+.checkbox-input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.checkbox:checked::before{
+    content: "&";
+    background-color: var(--color6);
+    display: block;
+    width: max-content;
+    height: 50px;
 }
 /*#endregion*/
 
+.overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--color4);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 90;
+
+    transition: opacity .4s;
+}
+.overlay:target{
+    visibility: visible;
+    opacity: 0.7;
+}
 /*#region -------------------- RESPONSIVE TABLETTE --------------------*/
 @media all and (max-width: 991px) {
 

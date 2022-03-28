@@ -38,11 +38,14 @@
 
             <section id="about">
                 <div id="presentation">
-                    <h4>à propos</h4><br />
-                    <p>
+                    <h4>
                         <span>
-                            Passionné par les nouvelles technologie et l’art, j'aime de nouveaux défis. Possédant une forte polyvalence en audiovisuel, direction artistique et graphisme, je souhaite allier ma créativité à ma passion pour le design.
+                            à propos
                         </span>
+                    </h4>
+                    <br />
+                    <p>
+                        Passionné par les nouvelles technologie et l’art, j'aime de nouveaux défis. Possédant une forte polyvalence en audiovisuel, direction artistique et graphisme, je souhaite allier ma créativité à ma passion pour le design.
                     </p>
                     <a href="#contact" class="button-1">Contactez-moi!</a>
                 </div>
@@ -55,21 +58,56 @@
     
             </section>
 
-            <!-- <section class="formulaire">
+            <section class="formulaire">
+                <a href="#" class="fas fa-times close-form"></a>
                 <form method="post" action="">
-                    <p>Bonjour, je m'appelle</p>
-                    <input type="text" id="champ-nom" name="nom" placeholder="Votre nom complet">
-                    <p>et je disucuter d'un projet potentiel.</p>
-                    <p>Vous pouvez m'envoyer un e-mail à</p>
-                    <input type="email" id="champ-mail" name="email" placeholder="Votre email">
-                    <p>ou vous pouvez me joindre au</p>
-                    <input type="tel" id="champ-tel" name="tel" placeholder="Votre téléphone">
-                    <input type="checkbox" name="branding" value="Branding">
-                    <textarea></textarea>
-                    <input type="submit" value="envoyer">
+                    <div id="information">
+                        <div class="block">
+                            <p>Bonjour, je m'appelle</p>
+                            <input type="text" required="required" class="champ-nom" name="nom" placeholder="Votre nom complet">
+                            <span class="obligatoire"></span>
+                            <p>et je veux discuter d'un projet potentiel.</p>
+                        </div>
+                        <div class="block">
+                            <p>Vous pouvez m'envoyer un e-mail à</p>
+                            <input type="email" required="required" class="champ-mail" name="email" placeholder="Votre email">
+                            <span class="obligatoire"></span>
+                        </div>
+                        <div class="block">
+                            <p>ou vous pouvez me joindre au</p>
+                            <input type="tel" id="champ-tel" name="tel" placeholder="Votre téléphone">
+                        </div>
+                    </div>
+                    <br>
+                    <div id="demande">
+                        <p>Je m'intéresse à</p>
+                        <div id="check-list">
+                            <label class="checkbox" for="branding">
+                                <input type="checkbox" class="checkbox-input" name="branding">
+                                Branding
+                            </label>
+                            <label class="checkbox" for="branding">
+                                <input type="checkbox" class="checkbox-input" name="design-web" value="Web">
+                                Design web
+                            </label>
+                            <label class="checkbox" for="branding">
+                                <input type="checkbox" class="checkbox-input" name="programation" value="dev-web">
+                                Programmation
+                            </label>
+                            <label class="checkbox" for="branding">
+                                <input type="checkbox" class="checkbox-input" name="autre" value="Autre">
+                                Autre
+                            </label>
+                        </div>
+                        <br>
+                        <p>Un petit quelque chose sur mon projet</p>
+                        <textarea id="text-client" name="text-client" placeholder="Mon projet porte sur..."></textarea>
+                    </div>
+                    <input type="submit" class="btn" value="Envoyer">
                 </form>
-            </section> -->
+            </section>
 
+            <div id="popup" class="overlay"></div>
         </main>
 
         <script src="app.js"></script>

@@ -1,6 +1,13 @@
 let toggle = document.querySelector(".toggle");
 let body = document.querySelector("body");
 
+const indicator = document.querySelector('.nav-indicator');
+const items = document.querySelectorAll('.nav-item');
+
+var sectionNum = 0;
+var scrollNum = 0;
+
+//#region Burger responsive
 /*Au click la class toggle est ouverte*/
 toggle.addEventListener('click', function(){
     body.classList.toggle('open');
@@ -13,8 +20,9 @@ var scroll = window.requestAnimationFrame ||
     };
 
 var elementsToShow = document.querySelectorAll('.show-and-scroll');
+//#endregion
 
-//paralax image au scroll
+//#region paralax image au scroll
 
 function loop() {
     elementsToShow.forEach(function (element) {
@@ -42,14 +50,14 @@ function isElemmentInViewport(el) {
     );
 }
 
-//Scroll
+//#endregion
 
-// voir le scroll en px
-window.addEventListener('scroll', function (e){
-    this.console.log(document.documentElement.scrollTop);
-});
+//#region Scroll
 
-//voir navbar
+//Pour voir le scroll en px
+// window.addEventListener('scroll', function (e){
+//     this.console.log(document.documentElement.scrollTop);
+// });
 
 //function de changement au scroll
 window.onscroll = function () {
@@ -64,7 +72,7 @@ window.onscroll = function () {
         document.getElementsByClassName('navbar')[0].style.top = "-120px";
         document.getElementsByClassName('logo')[0].style.top = "-120px";
         document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-100px";
-
+        
     }
     else {
         document.getElementsByClassName("navbar-bg")[0].style.top = "-120px";
@@ -72,14 +80,28 @@ window.onscroll = function () {
         document.getElementsByClassName('logo')[0].style.top = "0px";
         document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-150px";
     }
-    scroll(loop); 
-    // what is scroll() ?
+
+    
+    if (document.documentElement.scrollTop >= 0 && document.documentElement.scrollTop < 721){
+        scrollNum = 0;
+        console.log("SCROLL a "+ scrollNum );
+    }
+    else if (document.documentElement.scrollTop >= 721 && document.documentElement.scrollTop < 1443){
+        scrollNum = 1;
+        console.log("SCROLL a "+ scrollNum );
+    }
+    else if (document.documentElement.scrollTop >= 1443){
+        scrollNum = 2;
+        console.log("SCROLL a "+ scrollNum );
+    }
 }
 
-//nav indicator animation
-const indicator = document.querySelector('.nav-indicator');
-const items = document.querySelectorAll('.nav-item');
+scroll(loop);
 
+//#endregion
+
+
+//#region nav indicator animation
 function handleIndicator(el){
     //Boucler sur tous les items -> retirer la classe "is-active"
     items.forEach(item => {
@@ -95,10 +117,25 @@ function handleIndicator(el){
     el.style.color = '#5B83A6';
 }
 
+var indicatorTarget;
+
 items.forEach((item, index) => {
     item.addEventListener('click', (e) => {
         handleIndicator(e.target)
-        // console.log("item : "+ e.target)
+        indicatorTarget = e.target;
+    });
+    item.addEventListener('sroll', (e) => {
+        handleIndicator(e.target)
+        indicatorTarget = e.target;
     });
     item.classList.contains('is-active') && handleIndicator(item);
+    sectionNum = index;
 });
+
+// console.log("scroll num : "+ scrollNum + " & index : " + sectionNum);
+
+// if (scrollNum == sectionNum){
+//         handleIndicator(indicatorTarget)
+// }
+    
+//#endregion
