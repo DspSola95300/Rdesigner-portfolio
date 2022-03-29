@@ -1,4 +1,4 @@
-/*#region -------------------- GENERAL --------------------*/
+/*#region -------------------- GENERAL -------------------*/
 
 *, ::before, ::after{
     margin: 0;
@@ -83,7 +83,9 @@ small{
     font-size: 13px;
     font-style: italic;
 }
+
 /*#region--------------------Button--------------------*/
+/* btn contactez-moi */
 .button-1 {
     display: block;
     color: var(--color4);
@@ -119,7 +121,7 @@ small{
     /* cursor: pointer; */
     z-index: 9;
 }
-
+/* btn envoye */
 .btn{
     border: 0;
     background: var(--color6);
@@ -128,6 +130,8 @@ small{
     padding: 0.1rem 1rem;
     border-radius: 0px 0px 20px 0px;
     float: right;
+    cursor: pointer;
+    transition: all .3s ease-out;
 }
 .btn:hover{
     background-color: var(--color7);
@@ -265,7 +269,7 @@ nav a:hover{
 }
 /*#endregion */
 
-/*#region -------------------- MAIN --------------------*/
+/*#region -------------------- MAIN ----------------------*/
 
 /*section acceuil*/
 #home{
@@ -420,13 +424,8 @@ h4:nth-child(2) span::after{
 }
 /*#endregion*/
 
-/*#region -------------------- FORMULAIRE --------------------*/
-input::placeholder, textarea::placeholder{
-    font-family: var(--font2);
-    font-size: 11px;
-    color: var(--color7);
-    padding-left: 8px;
-}
+/*#region -------------------- FORMULAIRE ----------------*/
+
 .close-form{
     position: absolute;
     top: -10px;
@@ -441,8 +440,25 @@ input::placeholder, textarea::placeholder{
     /* color:var(--color2); */
     background-color: var(--color7);
 }
+
+.contact{
+    position: fixed;    
+    top: 50%;
+    left: 50%;
+    width: max-content;
+    height: max-content;
+    visibility: hidden;
+    transform: translateX(-1400px);
+    transition: all 1s ease-out;
+}
+.contact:target{
+    visibility: visible;
+    transform: translateX(0px);
+    
+}
+
 .formulaire{
-    position: fixed;
+    position: fixed;    
     top: 50%;
     left: 50%;
     width: max-content;
@@ -470,8 +486,8 @@ form p{
     white-space: pre;
 }
 .block{
- display: inline-flex;
- margin: 5px 0;
+    display: inline-flex;
+    margin: 5px 0;
 }
 .champ-nom, .champ-mail, #champ-tel{
     border-radius: 3px;
@@ -479,6 +495,9 @@ form p{
     margin: 3px;
     display: block;
     height: 21px;
+}
+.obligatoire{
+    width: 0;
 }
 .obligatoire::after{
     content: "Champ obligatoire";
@@ -503,26 +522,41 @@ form p{
     display: flex;
     flex-direction: column;
 }
-
+/*#region checkbox*/
 #check-list{
     display: flex;
     justify-content: center;
 }
 
+input[type=text], input[type=mail],input[type=tel], input::placeholder, textarea::placeholder{
+    font-family: var(--font2);
+    font-size: 11px;
+    color: var(--color7);
+    padding-left: 8px;
+}
+input[type=checkbox]{
+    /* display: none; */
+}
+
 .checkbox{
     cursor: pointer;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: max-content;
+    width: 6rem;
     height: 100%;
     margin: 9px;
     padding: 3px 18px;
+    border-radius: 18px;
+
     text-align: center;
+    white-space: nowrap;
+
     overflow: hidden;
     transition: all 1s ease;
 }
-.checkbox::before{
+.checkbox label::before{
     background-color: var(--color6);
     content: "";
     position: absolute;
@@ -531,10 +565,10 @@ form p{
     height: 1.5rem;
     border-radius: 18px;
     z-index: -1;
-    overflow: hidden;
+    /* overflow: hidden; */
 
 }
-.checkbox::after{
+.checkbox label::after{
     content: "";
     position: absolute;
     display: block;
@@ -546,9 +580,10 @@ form p{
     background-color: var(--color2);
     z-index: -1;
     transform: translateX(-6rem);
-
+    transition: all .4s ease-out;
 }
-.checkbox:hover::after{
+
+.check-list input:checked + label::after{
     content: "";
     position: absolute;
     display: block;
@@ -556,15 +591,8 @@ form p{
     height: 1.5rem;
     border-radius: 18px;
     background-color: var(--color2);
-    z-index: 0;
 
-    transform: translateX(-6rem);
-}
-
-.checkbox-input{
-    opacity: 0;
-    width: 0;
-    height: 0;
+    transform: translateX(0rem);
 }
 .checkbox:checked::before{
     content: "&";
@@ -573,8 +601,18 @@ form p{
     width: max-content;
     height: 50px;
 }
+
+/* .checkbox-input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+} */
+
 /*#endregion*/
 
+/*#endregion*/
+
+/*#region ------------------- OVERLAY --------------------*/
 .overlay{
     position: fixed;
     width: 100%;
@@ -582,17 +620,15 @@ form p{
     top: 0;
     left: 0;
     background-color: var(--color4);
-    opacity: 0;
-    visibility: hidden;
+    opacity: 0.7;
     z-index: 90;
 
-    transition: opacity .4s;
+    transition: opacity .4s ease-out;
 }
-.overlay:target{
-    visibility: visible;
-    opacity: 0.7;
-}
-/*#region -------------------- RESPONSIVE TABLETTE --------------------*/
+
+/*#endregion*/
+
+/*#region ------------------- RESPONSIVE TABLETTE --------*/
 @media all and (max-width: 991px) {
 
     header{
