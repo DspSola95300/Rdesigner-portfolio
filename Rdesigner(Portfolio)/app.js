@@ -3,9 +3,20 @@ let body = document.querySelector("body");
 
 const indicator = document.querySelector('.nav-indicator');
 const items = document.querySelectorAll('.nav-item');
+var indicatorOfSection;
 
-var sectionNum = 0;
-var scrollNum = 0;
+const navbar = document.querySelector('nav');
+const navBarPos = navbar.getBoundingClientRect();
+const sections = document.querySelectorAll('section');
+
+function updateHash(hash){
+
+    const currentHash = window.location.hash;
+
+    if(currentHash != hash){
+        window.history.replaceState(null, null, hash);
+    }
+}
 
 //#region Burger responsive
 /*Au click la class toggle est ouverte*/
@@ -59,6 +70,21 @@ function isElemmentInViewport(el) {
 //     this.console.log(document.documentElement.scrollTop);
 // });
 
+function handleIndicator(el){
+    //Boucler sur tous les items -> retirer la classe "is-active"
+    items.forEach(item => {
+        item.classList.remove('is-active');
+        item.removeAttribute('style');
+    })
+    //Styliser l'indicateur
+    indicator.style.width = `${el.offsetWidth}px`;
+    indicator.style.backgroundColor = '#D19D4A';
+    indicator.style.left = `${el.offsetLeft}px`;
+    //Ajoute la classe is-active
+    el.classList.add('is-active');
+    el.style.color = '#5B83A6';
+}
+
 //function de changement au scroll
 window.onscroll = function () {
     if (document.documentElement.scrollTop >= 721 && document.documentElement.scrollTop < 1443) {
@@ -81,19 +107,24 @@ window.onscroll = function () {
         document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-150px";
     }
 
+    //#region nav section select au scroll
     
-    if (document.documentElement.scrollTop >= 0 && document.documentElement.scrollTop < 721){
-        scrollNum = 0;
-        console.log("SCROLL a "+ scrollNum );
-    }
-    else if (document.documentElement.scrollTop >= 721 && document.documentElement.scrollTop < 1443){
-        scrollNum = 1;
-        console.log("SCROLL a "+ scrollNum );
-    }
-    else if (document.documentElement.scrollTop >= 1443){
-        scrollNum = 2;
-        console.log("SCROLL a "+ scrollNum );
-    }
+    sections.forEach((section,index)=>{
+        const sectionPos = section.getBoundingClientRect();
+
+        if (sectionPos.top <= navBarPos.bottom && sectionPos.bottom >= navBarPos.bottom){
+            items.forEach(item=> item.classList.remove('is-active'));
+            items[index].classList.add("is-active");
+            const hash = items[index].getAttribute("href");
+            updateHash(hash);
+            items[index].classList.contains('is-active') && handleIndicator(items[index]);
+
+        }
+
+    });
+
+    //#endregion
+  
 }
 
 scroll(loop);
@@ -102,40 +133,16 @@ scroll(loop);
 
 
 //#region nav indicator animation
-function handleIndicator(el){
-    //Boucler sur tous les items -> retirer la classe "is-active"
-    items.forEach(item => {
-        item.classList.remove('is-active');
-        item.removeAttribute('style');
-    })
-    //Styliser l'indicateur
-    indicator.style.width = `${el.offsetWidth}px`;
-    indicator.style.backgroundColor = '#D19D4A';
-    indicator.style.left = `${el.offsetLeft}px`;
-    //Ajoute la classe is-active
-    el.classList.add('is-active');
-    el.style.color = '#5B83A6';
-}
 
-var indicatorTarget;
+var indicatorTarget = 0;
 
 items.forEach((item, index) => {
     item.addEventListener('click', (e) => {
         handleIndicator(e.target)
-        indicatorTarget = e.target;
     });
-    item.addEventListener('sroll', (e) => {
-        handleIndicator(e.target)
-        indicatorTarget = e.target;
-    });
-    item.classList.contains('is-active') && handleIndicator(item);
-    sectionNum = index;
+
+    // item.classList.contains('is-active') && handleIndicator(item);
 });
 
-// console.log("scroll num : "+ scrollNum + " & index : " + sectionNum);
-
-// if (scrollNum == sectionNum){
-//         handleIndicator(indicatorTarget)
-// }
     
 //#endregion
