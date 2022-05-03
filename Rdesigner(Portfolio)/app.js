@@ -9,6 +9,31 @@ const navbar = document.querySelector('nav');
 const navBarPos = navbar.getBoundingClientRect();
 const sections = document.querySelectorAll('section');
 
+//resize
+const screenWidth ={small:0, medium:400,large:800};
+let paralaxAbout = "";
+
+window.addEventListener('resize', resizeHandler);
+resizeHandler();
+
+function resizeHandler(){
+    const largeur = window.innerWidth;
+    let size = null;
+
+    for(let s in screenWidth){
+        if(largeur >= screenWidth[s]){
+            size = s;
+        }
+    }
+    console.log(size);
+}
+
+// if(largeur<=991){
+//     console.log("-991px");
+// }else{
+//     console.log("+991px");
+// }
+
 function updateHash(hash){
 
     const currentHash = window.location.hash;
