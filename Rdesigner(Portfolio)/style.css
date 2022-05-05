@@ -37,7 +37,7 @@ h1{
 
 h2 {
     color: var(--color2);
-    font-size: 48px;
+    font-size: 36px;
 }
 
 h3 {
@@ -280,7 +280,7 @@ nav a:hover{
     text-transform: uppercase;
     text-align: center;
     /* color: var(--color4); */
-    padding: 40px 0 0 0;
+    padding: 24px 0 0 0;
     margin: 0px;
     /* border: 1px red solid; */
 }
@@ -344,7 +344,7 @@ h4{
     left: -283px;
     background-color: var(--color4);
     border-radius: 0 0 122px 0;
-    z-index: 1;
+    z-index: 0;
 }
 .background-mokup {
     object-fit: contain;
@@ -354,6 +354,7 @@ h4{
     position: relative;
     /* top:-46px; */
     background: url('img/BackgroundApropos.jpg') no-repeat top center;
+    background-color: var(--color5);
     background-size: 150%;
     background-position-x: -50px;
     display: flex;
