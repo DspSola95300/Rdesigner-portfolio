@@ -15,6 +15,7 @@ html{
     --color5: #D9DBDB;
     --color6: #D19D4A;
     --color7: #D5BF9C;
+    --color8: #e3e6e9;
 
     /*fonts*/
     --font1:'Ubuntu', sans-serif;
@@ -320,7 +321,7 @@ nav a:hover{
     justify-items: center;
     margin: auto auto;
     padding: 200px 140px;
-    background: var(--color5);
+    background: linear-gradient( 70deg, var(--color5), var(--color8) 60%, var(--color5));
 }
 
 #presentation .button-1{
@@ -341,6 +342,7 @@ h4{
     width: 410px;
     height: 45px;
     position: relative;
+    top: -50px;
     left: -283px;
     background-color: var(--color4);
     border-radius: 0 0 122px 0;
@@ -354,7 +356,7 @@ h4{
     position: relative;
     /* top:-46px; */
     background: url('img/BackgroundAproposPanno.jpg') no-repeat top center;
-    background-color: var(--color5);
+    background-color: var(--color8);
     background-size: 400%;
     background-position-x: -920px;
     display: flex;
@@ -368,14 +370,13 @@ h4{
 /*#region section portfolio */
 #portfolio{
     position: relative;
+    top: 0;
     left: 0;
-    height: 100vh;
+    height: 110vh;
     background: url('img/BgPortfolio-13.png') no-repeat center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-position: right; */
     z-index: -100;
-    /* border: solid 1px var(--color1); */
 }
 /*#endregion*/
 
@@ -765,7 +766,11 @@ header{
     }
         /*#endregion*/
     /*#region portfolio*/
-/*#endregion*/
+    #portfolio{
+    margin-top: -3px;
+
+    }
+    /*#endregion*/
     /*#endregion*/
 
 }
