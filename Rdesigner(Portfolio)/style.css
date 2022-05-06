@@ -96,15 +96,18 @@ small{
 /* btn contactez-moi */
 .button-1 {
     display: block;
+    height: fit-content;
+    width: fit-content;
     color: var(--color4);
     font-size: 1.1rem;
     font-weight: 300;
-    margin: 10px auto  0 0;
+    margin: auto auto;
     padding-top: 2px;
     line-height: initial;
     text-overflow: clip;
     text-align: center;
     white-space: nowrap;
+    transform-origin: center;
 }
 .button-1::after{
     content: "";
@@ -115,20 +118,30 @@ small{
     margin: -29px auto;
     border-radius: 0 0 72px 0;
     transition: .4s;
+    z-index: -1;
 }
 .button-1:hover {
     /* display: block; */
-    transform: scale(1.1);
+    animation-name: bounce ;
+    animation-duration: .5s;
     cursor: pointer;
     z-index: 10;
 }
 .button-1:hover::after {
-    /* display: block; */
-    /* transform: scale(1.1); */
     background-color: var(--color7);
-    /* cursor: pointer; */
     z-index: 9;
 }
+
+@keyframes bounce {
+    0%{transform: scaleX(1) scaleY(1)}
+    20%{transform: scaleX(1.25) scaleY(.9)}
+    30%{transform: scaleX(1.25) scaleY(.9)}
+    50%{transform: scaleX(.9) scaleY(1.2)}
+    70%{transform: scaleX(1.2) scaleY(.8)}
+    85%{transform: scaleX(1) scaleY(1)}
+    100%{transform: scaleX(1) scaleY(1)}
+}
+
 /* btn envoye */
 .btn{
     border: 0;
@@ -281,7 +294,7 @@ nav a:hover{
     text-transform: uppercase;
     text-align: center;
     /* color: var(--color4); */
-    padding: 24px 0 0 0;
+    padding: 11px 0 0 0;
     margin: 0px;
     /* border: 1px red solid; */
 }
@@ -324,9 +337,9 @@ nav a:hover{
     background: linear-gradient( 70deg, var(--color5), var(--color8) 60%, var(--color5));
 }
 
-#presentation .button-1{
+/* #presentation .button-1{
     margin: 51px;
-}
+} */
 
 h4{
     color: var(--color2);
@@ -411,7 +424,6 @@ footer a:hover{
     75% {transform: scale3d(.9, 1.2, 1)}
     90% {transform: scale3d(1.1, .9, 1)}
     100% {transform: scale3d(1, 1, 1)}
-
 }
 
 footer a::before{
