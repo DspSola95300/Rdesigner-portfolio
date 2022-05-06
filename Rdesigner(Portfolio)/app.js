@@ -91,9 +91,9 @@ function isElemmentInViewport(el) {
 //#region Scroll
 
 //Pour voir le scroll en px
-// window.addEventListener('scroll', function (e){
-//     this.console.log(document.documentElement.scrollTop);
-// });
+window.addEventListener('scroll', function (e){
+    this.console.log(document.documentElement.scrollTop);
+});
 
 function handleIndicator(el){
     //Boucler sur tous les items -> retirer la classe "is-active"
@@ -112,24 +112,24 @@ function handleIndicator(el){
 
 //function de changement au scroll
 window.onscroll = function () {
-    if (document.documentElement.scrollTop >= 721 && document.documentElement.scrollTop < 1443) {
+    if (document.documentElement.scrollTop >= 721 && document.documentElement.scrollTop < 1435) {
         document.getElementsByClassName('navbar-bg')[0].style.top = "0px";
         document.getElementsByClassName('navbar')[0].style.top = "0px";
         document.getElementsByClassName('logo')[0].style.top = "0px";
-        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-150px";
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1020px";
     }
     else if (document.documentElement.scrollTop >= 31 && document.documentElement.scrollTop < 721) {
         document.getElementsByClassName('navbar-bg')[0].style.top = "-120px";
         document.getElementsByClassName('navbar')[0].style.top = "-120px";
         document.getElementsByClassName('logo')[0].style.top = "-120px";
-        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-100px";
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1000px";
         
     }
     else {
         document.getElementsByClassName("navbar-bg")[0].style.top = "-120px";
         document.getElementsByClassName('navbar')[0].style.top = "0px";
         document.getElementsByClassName('logo')[0].style.top = "0px";
-        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-150px";
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1020px";
     }
 
     //#region nav section select au scroll
