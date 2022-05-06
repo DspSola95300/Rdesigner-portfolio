@@ -9,7 +9,7 @@ const navbar = document.querySelector('nav');
 const navBarPos = navbar.getBoundingClientRect();
 const sections = document.querySelectorAll('section');
 
-//resize
+//resize new
 const screenWidth ={small:0, medium:400,large:800};
 let paralaxAbout = "";
 
@@ -112,7 +112,7 @@ function handleIndicator(el){
 
 //function de changement au scroll
 window.onscroll = function () {
-    if (document.documentElement.scrollTop >= 721 && document.documentElement.scrollTop < 1435) {
+    if (document.documentElement.scrollTop >= 721 && document.documentElement.scrollTop < 1434) {
         document.getElementsByClassName('navbar-bg')[0].style.top = "0px";
         document.getElementsByClassName('navbar')[0].style.top = "0px";
         document.getElementsByClassName('logo')[0].style.top = "0px";
