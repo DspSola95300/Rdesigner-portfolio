@@ -1,11 +1,44 @@
 /*#region -------------------- GENERAL -------------------*/
 
+*{
+    scrollbar-width: thin;
+    scrollbar-color: var(--color2);
+}
+
 *, ::before, ::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* custom scroll bar */
+*::-webkit-scrollbar{
+    width: 21px;
+}
+
+*::-webkit-scrollbar-track{
+    background: var(--color2);
+    box-shadow: 10px 5px 5px var(--color4);
+}
+
+*::-webkit-scrollbar-thumb{
+    /* height: 100px; */
+    background-color: var(--color5);
+    border-radius: 21px;
+    /* border: 3px solid var(--color8); */
+}
+
+*::-webkit-scrollbar-button{
+    background-color: var(--color1);
+    /* border: 1px solid var(--color6);
+    border-radius: 0 0 13px 13px; */
+}
+
+*::-webkit-scrollbar-corner{
+    background-color: var(--color4);
+}
+
+/* HTML */
 html{
     /*Couleurs*/
     --color1: #638DA6;
@@ -21,8 +54,9 @@ html{
     --font1:'Ubuntu', sans-serif;
     --font2:'Oswald', Arial, sans-serif;
 
-    scroll-behavior: smooth;
     /* ne fonctionne pas sur Safari */
+    scroll-behavior: smooth;
+    /* transition: scroll-behavior 1s ease-out .4s; */
 }
 
 body{
@@ -134,10 +168,10 @@ small{
 
 @keyframes bounce {
     0%{transform: scaleX(1) scaleY(1)}
-    20%{transform: scaleX(1.25) scaleY(.9)}
-    30%{transform: scaleX(1.25) scaleY(.9)}
-    50%{transform: scaleX(.9) scaleY(1.2)}
-    70%{transform: scaleX(1.2) scaleY(.8)}
+    20%{transform: scaleX(1.15) scaleY(.5)}
+    30%{transform: scaleX(1.15) scaleY(.5)}
+    50%{transform: scaleX(.5) scaleY(1.2)}
+    70%{transform: scaleX(1.1) scaleY(.8)}
     85%{transform: scaleX(1) scaleY(1)}
     100%{transform: scaleX(1) scaleY(1)}
 }
@@ -200,14 +234,11 @@ nav{
     width: 40%;
     height:100%;
     display: flex;
-    /* justify-content: flex-end; */
     align-items: center;
     margin: 16px 0 0 0;
     text-align: center;
     transition: all 1s ease-out;
-
     background-color: rgba(255, 255, 255, 0);
-    /* overflow: hidden; */
 }
 .navbar{
     white-space: nowrap;
@@ -476,18 +507,18 @@ footer a::before{
 }
 
 .contact{
-    position: fixed;    
+    /* position: fixed; */
     top: 50%;
-    left: -100%;
     width: max-content;
     height: max-content;
     visibility: hidden;
-    
-    transition: all 1s ease-out;
+    opacity: 0;
+    transition: all 3s ease-out;
 }
 .contact:target{
-    left: 0%;
+    /* left: 0%; */
     visibility: visible;
+    opacity: 1;
 }
 
 .formulaire{
@@ -510,6 +541,7 @@ form p{
     color: var(--color1);
     /* flex-direction: row; */
 }
+
 #information{
     display: flex;
     flex-direction: column;
@@ -555,6 +587,7 @@ form p{
     display: flex;
     flex-direction: column;
 }
+
 /*#region checkbox*/
 #check-list{
     display: flex;
