@@ -10,7 +10,7 @@ const navBarPos = navbar.getBoundingClientRect();
 const sections = document.querySelectorAll('section');
 
 //resize new
-const screenWidth ={small:0, medium:400,large:800};
+const screenWidth ={small:0, medium:400,large:991};
 let paralaxAbout = "";
 
 window.addEventListener('resize', resizeHandler);
@@ -27,13 +27,13 @@ function resizeHandler(){
         }
     }
     console.log(size);
+    if(size== 'medium'){
+        console.log("oui");
+    }else{
+        console.log("non");
+    }
 }
 
-// if(largeur<=991){
-//     console.log("-991px");
-// }else{
-//     console.log("+991px");
-// }
 
 function updateHash(hash){
 
