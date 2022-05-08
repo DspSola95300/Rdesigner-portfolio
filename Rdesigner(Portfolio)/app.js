@@ -11,6 +11,7 @@ const sections = document.querySelectorAll('section');
 
 //resize new
 const screenWidth ={small:0, medium:400,large:991};
+let isMedium = true;
 let paralaxAbout = "";
 
 window.addEventListener('resize', resizeHandler);
@@ -29,8 +30,10 @@ function resizeHandler(){
     console.log(size);
     if(size== 'medium'){
         console.log("oui");
+        isMedium = true;
     }else{
         console.log("non");
+        isMedium = false;
     }
 }
 
