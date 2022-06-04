@@ -120,20 +120,32 @@ window.onscroll = function () {
         document.getElementsByClassName('navbar-bg')[0].style.top = "0px";
         document.getElementsByClassName('navbar')[0].style.top = "0px";
         document.getElementsByClassName('logo')[0].style.top = "0px";
-        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1120px";
+        if(!isMedium){
+            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1120px";
+        }else{
+            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-250px";
+        }
     }
     else if (document.documentElement.scrollTop >= 31 && document.documentElement.scrollTop < 708) {
         document.getElementsByClassName('navbar-bg')[0].style.top = "-120px";
         document.getElementsByClassName('navbar')[0].style.top = "-120px";
         document.getElementsByClassName('logo')[0].style.top = "-120px";
-        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1100px";
+        if(!isMedium){
+            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1100px";
+        }else{
+            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-200px";
+        }
         
     }
     else {
         document.getElementsByClassName("navbar-bg")[0].style.top = "-120px";
         document.getElementsByClassName('navbar')[0].style.top = "0px";
         document.getElementsByClassName('logo')[0].style.top = "0px";
-        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1100px";
+        if(!isMedium){
+            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1100px";
+        }else{
+            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-200px";
+        }
     }
 
     //#region nav section select au scroll
