@@ -7,9 +7,11 @@
         <title>RdeSigneR</title>
         <link rel="icon" type="image/png" href="img/Logo.png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script data-search-pseudo-elements src="https://kit.fontawesome.com/f737751420.js" crossorigin="anonymous"></script>
+
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-        <script src="app.js" defer></script>
+        <!-- <script src="app.js" defer></script> -->
 </head>
     <body>
         <header>
@@ -43,7 +45,6 @@
                     <div id="bg-title">
                         <h4>à propos</h4>
                     </div>
-                    <!-- <br /> -->
                     <p>
                         Passionné par les nouvelles technologie, l’image et la musique.<br>
                          J'aime relever de nouveaux défis. Possédant une forte polyvalence en audiovisuel, direction artistique et graphisme, je souhaite allier ma créativité à ma passion pour le design.
@@ -56,8 +57,188 @@
             </section>
 
             <section id="portfolio">
-    
+                <!-- #region modal -->
+                <div class="modal-container" id="pj_1">
+                    
+                        <div class="overlay modal-trigger"></div>
+                    
+                        <div class="modal">        
+                            <button class="close-modal modal-trigger" value="close" onclick="closeModal(this.value)">X</button>
+                            <div class="descriptif">
+                            
+                                <h1>Electrowaves
+                                    <div class="icons">
+                                        <ul>
+                                            <li class="ps"></li>
+                                        </ul>
+                                    </div>
+                                </h1>
+                            
+                                <p>Projet pour une pochette d'un single de l'artiste DSP SOLA</p>
+                            
+                                <h2>Technique:</h2>
+                                <ul>
+                                    <li>Recherche de polices</li>
+                                    <li>Masque de fusion</li>
+                                    <li>Outil doigt</li>
+                                    <li>Application de brush</li>
+                                    <li>Étalonnage</li>
+                                </ul>
+                        
+                            </div>
+                        <div class="img-modal">
+                            <div class="resultat projet1"></div>
+                                <h2>Images de références:</h2>
+                                <div class="referances ref-a">
+                                    <ul>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="modal-container" id="pj_2">
+                
+                    <div class="overlay modal-trigger"></div>
+                
+                    <div class="modal">        
+                        <button class="close-modal modal-trigger" value="close" onclick="closeModal(this.value)">X</button>
+                        <div class="descriptif">
+                        
+                            <h1>Break dancer
+                                <div class="icons">
+                                    <ul>
+                                        <li class="ps"></li>
+                                    </ul>
+                                </div>
+                            </h1>
+                        
+                            <p>Projet pour une pochette d'un single de l'artiste DSP SOLA</p>
+                        
+                            <h2>Technique:</h2>
+                            <ul>
+                                <li>Mode de fusion</li>
+                                <li>Transformation perspective</li>
+                                <li>Outil tampon</li>
+                                <li>Application de brush</li>
+                            </ul>
+                        
+                        </div>
+                        <div class="img-modal">
+                            <div class="resultat projet2"></div>
+                            <h2>Images de références:</h2>
+                            <div class="referances ref-b">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-container" id="pj_3">
+                
+                    <div class="overlay modal-trigger"></div>
+                
+                    <div class="modal">        
+                        <button class="close-modal modal-trigger" value="close" onclick="closeModal(this.value)">X</button>
+                        <div class="descriptif">
+
+                            <h1>Macinthosh
+                                <div class="icons">
+                                    <ul>
+                                        <li class="ps"></li>
+                                        <li class="il"></li>
+                                    </ul>
+                                </div>
+                            </h1>
+                        
+                            <p>Hommage au Macintosh classic</p>
+                        
+                            <h2>Technique:</h2>
+                            <ul>
+                                <li>Import de mockup</li>
+                                <li>Masque de fusion</li>
+                                <li>Masque d’écrétaget</li>
+                                <li>Étalonnage</li>
+                            </ul>
+                        
+                        </div>
+                        <div class="img-modal">
+                            <div class="resultat projet3"></div>
+                            <h2>Images de références:</h2>
+                            <div class="referances ref-c">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- #endregion -->
+
+                <div class="carousel">
+                
+                    <div class="item">
+                        <div class="projet">
+                            <button class="modal-btn modal-trigger" value="pj_1" onclick="doModal(this.value)">Voir </button>
+                        </div>
+                    </div>
+                
+                    <div class="item">
+                        <div class="projet">
+                            <button class="modal-btn modal-trigger" value="pj_2" onclick="doModal(this.value)">Voir </button>
+                        </div>
+                    </div>
+                
+                    <div class="item">
+                        <div class="projet">
+                            <button class="modal-btn modal-trigger" value="pj_3" onclick="doModal(this.value)">Voir </button>
+                        </div>
+                    </div>
+                
+                    <div class="item">
+                        <div class="projet">
+                            <button class="modal-btn modal-trigger" value="pj_4" onclick="doModal(this.value)">Voir </button>
+                        </div>
+                    </div>
+                
+                    <div class="item">
+                        <div class="projet">
+                            <button class="modal-btn modal-trigger" value="pj_5" onclick="doModal(this.value)">Voir </button>
+                        </div>
+                    </div>
+                
+                    <div class="item">
+                        <div class="projet">
+                            <button class="modal-btn modal-trigger" value="pj_6" onclick="doModal(this.value)">Voir </button>
+                        </div>
+                    </div>
+                
+                </div>
+                
+                <div class="btnDirection">
+                    <a onclick="rotate(1)" class="dirButton" id="btnLeft"></a>
+                    <a onclick="rotate(-1)" class="dirButton" id="btnRight"></a>
+                </div>
             </section>
+
+        </main>
+        
+        <footer>
+            <a href="#" id="linkedin">linkedin</a>
+            <a href="#" id="instagram">instagram</a>
+            <a href="#" id="behance">behance</a>
 
             <div id="contact" class="contact">
                 <div class="formulaire">
@@ -108,16 +289,11 @@
                         <input type="submit" class="btn" value="Envoyer">
                     </form>
                 </div>
-                <div class="overlay"></div>
+                <div class="overlay-contact"></div>
             </div>
-
-        </main>
-        <footer>
-            <a href="#" id="linkedin">linkedin</a>
-            <a href="#" id="instagram">instagram</a>
-            <a href="#" id="behance">behance</a>
-
-
         </footer>
+
+        <script src="app.js"></script>
+
     </body>
 </html>

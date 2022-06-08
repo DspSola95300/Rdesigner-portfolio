@@ -1,3 +1,5 @@
+//#region variable global
+
 let toggle = document.querySelector(".toggle");
 let body = document.querySelector("body");
 
@@ -8,16 +10,19 @@ var indicatorOfSection;
 const navbar = document.querySelector('nav');
 const navBarPos = navbar.getBoundingClientRect();
 const sections = document.querySelectorAll('section');
-
-//resize new
 const screenWidth ={small:0, medium:400,large:991};
 let isMedium = true;
 let paralaxAbout = "";
+
+//#endregion
+
+//#region resize
 
 window.addEventListener('resize', resizeHandler);
 resizeHandler();
 console.log(screenWidth);
 
+//on récupère la largeur de la fenêtre
 function resizeHandler(){
     const largeur = window.innerWidth;
     let size = null;
@@ -35,7 +40,6 @@ function resizeHandler(){
     }
 }
 
-
 function updateHash(hash){
 
     const currentHash = window.location.hash;
@@ -45,7 +49,10 @@ function updateHash(hash){
     }
 }
 
+//#endregion
+
 //#region Burger responsive
+
 /*Au click la class toggle est ouverte*/
 toggle.addEventListener('click', function(){
     body.classList.toggle('open');
@@ -58,6 +65,7 @@ var scroll = window.requestAnimationFrame ||
     };
 
 var elementsToShow = document.querySelectorAll('.show-and-scroll');
+
 //#endregion
 
 //#region paralax image au scroll
@@ -163,7 +171,6 @@ scroll(loop);
 
 //#endregion
 
-
 //#region nav indicator animation
 
 var indicatorTarget = 0;
@@ -177,4 +184,84 @@ items.forEach((item, index) => {
 });
 
     
+//#endregion
+
+//#region Carousel
+
+var itemsCarousel, length, deg, z, move = 0;
+
+function rotate(direction){
+    move += direction;
+    
+    for(var i = 0; i < length; i++) {
+        itemsCarousel[i].style.transform = "rotateY("+(deg*(i+move))+"deg) translateZ("+z+"px)";
+    }
+}
+
+function load(){
+    itemsCarousel = document.getElementsByClassName('item');
+    length = itemsCarousel.length;
+    
+    deg = 360 / length;
+    z = (itemsCarousel[0].offsetWidth / 2) / Math.tan((deg / 2) * (Math.PI / 180));
+    // alert(deg + " " + z);
+    for(var i = 0; i < length; i++) {
+        itemsCarousel[i].style.transform = "rotateY("+(deg*i)+"deg) translateZ("+z+"px)";
+    }
+}
+
+window.addEventListener('load', load);
+
+//#endregion
+
+//#region Modal
+
+const modalContainer = document.querySelector(".modal-container");
+const modalContainers = document.querySelectorAll(".modal-container");
+
+const modalTriggers = document.querySelectorAll(".modal-trigger");
+
+let pj_;
+
+function doModal(value){
+    pj_ = document.getElementById(value);
+
+    console.log("projet: " + pj_ + " et " + value);
+
+    modalContainers.forEach(value => {
+        if(pj_ != value){
+            value.classList.remove('active');
+        }
+        else{
+            value.classList.add('active');
+        }
+    });
+}
+
+function closeModal(value){
+    modalContainers.forEach(value => {
+        value.classList.remove("active");
+    });
+
+}
+
+// const element = 0;
+// for (let i = 0; i < modalContainer.length; i++) {
+//     element = modalContainer[i];
+// }
+
+
+//ferme la fenêtre modal
+// modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal));
+
+function toggleModal(){
+    //renvoie vrais ou faux
+    
+    modalContainer.classList.toggle("active");
+    
+    // console.log(modalContainers);
+    // console.log(trigger + " " + mod);
+    
+}
+
 //#endregion

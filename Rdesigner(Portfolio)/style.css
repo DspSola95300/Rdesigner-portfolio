@@ -11,6 +11,12 @@
     box-sizing: border-box;
 }
 
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 /* custom scroll bar */
 *::-webkit-scrollbar{
     width: 21px;
@@ -53,6 +59,31 @@ html{
     --font1:'Ubuntu', sans-serif;
     --font2:'Oswald', Arial, sans-serif;
 
+    /* Images */
+    --projet1: url("img/Portfolio/Electrowaves.jpg") no-repeat center center;
+    --projet2: url("img/Portfolio/Danse.jpg") no-repeat center center;
+    --projet3: url("img/Portfolio/Macintosh.jpg") no-repeat center center;
+    --projet4: url("img/Portfolio/BrokenGlass.jpg") no-repeat center center;
+    --projet5: url("img/Portfolio/Pyramide.jpg") no-repeat center center;
+    --projet6: url("img/Portfolio/VoltFace.jpg") no-repeat center center;
+
+    /* ref */
+    --refA1: url("img/Portfolio/FichierDeTravail/Photoshop/ElectroWave/Img/susan-yin-POOKR7hxtuU-unsplash.jpg") no-repeat center center;
+    
+    --refB1: url("img/Portfolio/FichierDeTravail/Photoshop/BreakerDancer/img/pexels-wesley-carvalho-3622614.jpg") no-repeat center center;
+
+    --refC1: url("img/Portfolio/FichierDeTravail/Photoshop/Macintosh/img/Front-and-Center-for-Mac-image-001.png") no-repeat center center;
+    --refC2: url("img/Portfolio/FichierDeTravail/Photoshop/Macintosh/img/Image-bg.png") no-repeat center center;
+    --refC3: url("img/Portfolio/FichierDeTravail/Photoshop/Macintosh/img/Image.png") no-repeat center center;
+    --refC4: url("img/Portfolio/FichierDeTravail/Photoshop/Macintosh/img/mac-os-7.jpg") no-repeat center center;
+    --refC5: url("img/Portfolio/FichierDeTravail/Photoshop/Macintosh/img/SteveJobs.png") no-repeat center center;
+    
+    /* --refD1: url("img/Portfolio/FichierDeTravail/Photoshop/") no-repeat center center; */
+
+    /* Icons */
+    --icon1: url("img/logoAdobe/Adobe-Photoshop-Logo.png") no-repeat center center;
+    --icon2: url("img/logoAdobe/Illustrator-Logo.png") no-repeat center center;
+
     /* ne fonctionne pas sur Safari */
     scroll-behavior: smooth;
     /* transition: scroll-behavior 1s ease-out .4s; */
@@ -64,6 +95,7 @@ body{
 }
 
 /*#region balise titre*/
+
 h1{
     font-family: var(--font1);
     color: var(--color1);
@@ -78,6 +110,15 @@ h3 {
     font-size: 30px;
     color: var(--color2);
 }
+
+h4{
+    color: var(--color2);
+    font-size: clamp(34px, 8vw, 18px);
+    text-transform: uppercase;
+    float: right;
+    position: relative;
+}
+
 /*#endregion*/
 
 /*#region balise*/
@@ -125,7 +166,8 @@ small{
     font-style: italic;
 }
 
-/*#region--------------------Button--------------------*/
+/*#region--------------------Buttons--------------------*/
+
 /* btn contactez-moi */
 .button-1 {
     display: block;
@@ -306,6 +348,7 @@ nav a:hover{
 /*#region -------------------- MAIN ----------------------*/
 
 /*#region section acceuil*/
+
 #home{
     position: relative;
     top: 0;
@@ -348,6 +391,7 @@ nav a:hover{
 /*#endregion*/
 
 /*#region section à propos */
+
 #about{
     height: 100vh;
     background-repeat: no-repeat;
@@ -367,19 +411,6 @@ nav a:hover{
     background: linear-gradient( 70deg, var(--color5), var(--color8) 60%, var(--color5));
 }
 
-/* #presentation .button-1{
-    margin: 51px;
-} */
-
-h4{
-    color: var(--color2);
-    font-size: clamp(34px, 8vw, 18px);
-    text-transform: uppercase;
-    float: right;
-    /* display: inline-block; */
-    position: relative;
-}
-
 /* backgrounds */
 #bg-title {
     width: 410px;
@@ -387,7 +418,6 @@ h4{
     position: relative;
     top: -50px;
     left: -283px;
-    /* background-color: var(--color4); */
     border-radius: 0 0 122px 0;
     z-index: 0;
 }
@@ -395,9 +425,7 @@ h4{
     object-fit: contain;
     width:50%;
     height: 100vh;
-    /*transform:translateX(0px);*/
     position: relative;
-    /* top:-46px; */
     background: url('img/BackgroundAproposPanno.jpg') no-repeat top center;
     background-color: var(--color8);
     background-origin: content-box;
@@ -409,24 +437,431 @@ h4{
     transition-delay: 1s;
     transition: all 2s ease-in-out;
 }
+
 /*#endregion*/
 
 /*#region section portfolio */
+
 #portfolio{
     position: relative;
     top: 0;
     left: 0;
     height: 110vh;
     background: url('img/BgPortfolio-13.png') no-repeat center;
-    background-repeat: no-repeat;
     background-size: cover;
-    z-index: -100;
 }
+
+/*#region ---Modal---*/
+
+.modal-btn{
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 13px;
+    padding: 10px 14px;
+    font-size: 18px;
+    font-family: var(--font2);
+    margin: auto auto;
+    display: block;
+    min-width: 80px;
+    cursor: pointer;
+    background-color: var(--color6);
+    color: var(--color4);
+    border-radius: 13px;
+    border: none;
+    text-transform: uppercase;
+}
+
+.modal-btn::after{
+    display: none;
+    font: var(--fa-font-solid);
+    content: "\f055";
+    margin-left: 13px;
+    padding-left: 13px;
+}
+
+.modal-btn:hover{
+    background-color: var(--color7);
+}
+
+.modal-container{
+    /* display: none; */
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    transition: visibility 0.4s;
+}
+
+.modal-container.active{
+    /* display: block; */
+    visibility: visible;
+    transition: visibility 0s;
+}
+
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--color4);
+    opacity: .8;
+    transition: opacity 0.4s 0.2s ease-out;
+}
+
+.modal-container.active .overlay{
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+.modal{
+    opacity: 0;
+    width: 95%;
+    max-width: 100%;
+    min-width: 300px;
+    height: auto;
+    padding: 30px;
+    background: var(--color5);
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: row;
+    transform: translate(-50%, calc(-50% - 50px)) scale(0);
+    transition: opacity 0.4s ease-out, transform 0.4s 0.2s ease-out;
+}
+
+.modal-container.active .modal{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
+}
+
+.close-modal{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 21px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: var(--color6);
+    color: var(--color5 );
+}
+.descriptif{
+    display: flex;
+    flex-direction: column;
+}
+.modal h1{
+    height: 7px;
+    margin-bottom: 10px;
+    font-family: var(--font1);
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal h2{
+    margin-bottom: 0;
+}
+
+.modal p{
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+/* #region ---Modal projets--- */
+.img-modal{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: auto;
+}
+.resultat{
+    height: 600px;
+    width: 100%;
+    max-height: 100%;
+    margin: auto 0;
+}
+
+
+.referances{
+    height: 25%;
+    overflow: scroll;
+}
+
+.referances ul{
+    height: 100%;
+    width: 440px;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding-left: 0;
+}
+
+.referances ul li{
+    margin: 5px;
+}
+/* #region ---projet 1--- */
+.projet1{
+    background: var(--projet1);
+    background-size:contain;
+}
+
+.ref-a ul li:nth-child(1){
+    background: var(--refA1);
+    background-size: contain;
+    height: 100%;
+    width: 240px;
+}
+
+.ref-a ul li:nth-child(2){
+    background: var(--ref1);
+    background-size: contain;
+    height: 100%;
+    width: 240px;
+}
+
+.ref-a ul li:nth-child(3){
+    background: var(--ref1);
+    background-size: contain;
+    height: 100%;
+    width: 240px;
+}
+/* #endregion */
+
+/* #region ---projet 2--- */
+.projet2{
+    background: var(--projet2);
+    background-size:contain;
+}
+
+.ref-b ul li:nth-child(1){
+    background: var(--refB1);
+    background-size: contain;
+    height: 100%;
+    width: 240px;
+}
+/* #endregion */
+
+/* #region ---projet 3--- */
+.projet3{
+    background: var(--projet3);
+    background-size:contain;
+}
+
+.ref-c ul li:nth-child(1){
+    background: var(--refC1);
+    background-size: contain;
+    height: 100%;
+    width: 240px;
+}
+.ref-c ul li:nth-child(2){
+    background: var(--refC2);
+    background-size: contain;
+    height: 100%;
+    width: 240px;
+}
+.ref-c ul li:nth-child(3){
+    background: var(--refC3);
+    background-size: contain;
+    height: 100%;
+    width: 240px;
+}
+.ref-c ul li:nth-child(4){
+    background: var(--refC4);
+    background-size: contain;
+    height: 100%;
+    width: 240px;
+}
+.ref-c ul li:nth-child(5){
+    background: var(--refC5);
+    background-size: contain;
+    height: 100%;
+    width: 240px;
+}
+/* #endregion */
+
+/* #region ---projet 4--- */
+/* #endregion */
+
+/* #region ---projet 5--- */
+/* #endregion */
+
+/* #region ---projet 6--- */
+/* #endregion */
+
+/* #endregion */
+
+/* #region --Icons logiciel--- */
+
+.icons ul{
+    display: flex;
+    flex-direction: row;
+}
+.icons ul li{
+    height: 30px;
+    width: 30px;
+    max-height: 50px;
+    max-width: 50px;
+    margin: 5px;
+    /* transform: scale(.5); */
+}
+
+.ps{
+    background: var(--icon1);
+    background-size:contain;
+}
+.il{
+    background: var(--icon2);
+    background-size:contain;
+}
+/* #endregion */
+
+/*#endregion*/
+
+/* #region ---Carousel--- */
+
+.carousel{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.carousel .item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    /* border: 1px solid black; */
+    transition: transform 1s;
+}
+
+.carousel .item .projet{
+    position: relative;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    transform-origin: center;
+    /* transform: translateY(18%); */
+    border-radius: 8px;
+    transition: transform 1s;
+}
+
+.carousel .item .projet:hover{
+    /* mettre dans sous bloc */
+    transform: perspective(500px) scale3d(1.1, 1.1, 1.1);
+    background-color: #D5BF9C;
+}
+
+.btnDirection{
+    display: flex;
+    justify-content: space-between;
+    margin: 21px;
+}
+
+.dirButton{
+    position: relative;
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    top: 0;
+    left: 0;
+    font-size: 5rem;
+    bottom: 50px;
+    margin: 21px;
+    border-radius: 5rem;
+
+    color: var(--color6);
+    /* background-color: var(--color2); */
+    /* box-shadow: 3px 3px 12px 1px var(--color4); */
+
+    z-index: 100;
+    
+    text-align: center;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    
+    cursor: pointer;
+    
+    transform-origin: center;
+    transition: all 1s;
+}
+
+.dirButton:hover{
+    font-size: 5.3rem;
+}
+
+#btnLeft::before{
+    display: none;
+    /* float: left; */
+    font: var(--fa-font-solid);
+    content: "\f137";
+    color: var(--color6);
+}
+
+#btnRight::after{
+    display: none;
+    /* float: right; */
+    font: var(--fa-font-solid);
+    content: "\f138";
+    color: var(--color6);
+}
+
+/* #endregion */
+
+/*#region ---Carousel projet --- */
+
+.carousel .item:nth-child(1) .projet{
+    background: var(--projet1);
+    background-size: contain;
+}
+
+.carousel .item:nth-child(2) .projet{
+    background: var(--projet2);
+    background-size: contain;
+}
+
+.carousel .item:nth-child(3) .projet{
+    background: var(--projet3);
+    background-size: contain;
+}
+
+.carousel .item:nth-child(4) .projet{
+    background: var(--projet4);
+    background-size: contain;
+}
+
+.carousel .item:nth-child(5) .projet{
+    background: var(--projet5);
+    background-size: contain;
+}
+
+.carousel .item:nth-child(6) .projet{
+    background: var(--projet6);
+    background-size: contain;
+}
+
+/*#endregion*/
+
 /*#endregion*/
 
 /*#endregion*/
 
-/*#region ------------------- FOOTER -------------------- */
+    /*#region ------------------- FOOTER -------------------- */
 
 footer {
     display: flex;
@@ -489,7 +924,7 @@ footer a::before{
 
 /*#endregion*/
 
-/*#region -------------------- FORMULAIRE ----------------*/
+    /*#region -------------------- FORMULAIRE ----------------*/
 
 .close-form{
     position: absolute;
@@ -502,12 +937,10 @@ footer a::before{
     transition: all .4s ease-out;
 }
 .close-form:hover{
-    /* color:var(--color2); */
     background-color: var(--color7);
 }
 
 .contact{
-    /* position: fixed; */
     top: 50%;
     width: max-content;
     height: max-content;
@@ -516,7 +949,6 @@ footer a::before{
     transition: all 3s ease-out;
 }
 .contact:target{
-    /* left: 0%; */
     visibility: visible;
     opacity: 1;
 }
@@ -631,7 +1063,6 @@ input[type=checkbox]{
     height: 1.5rem;
     border-radius: 18px;
     z-index: -1;
-    /* overflow: hidden; */
 
 }
 .checkbox label::after{
@@ -640,8 +1071,7 @@ input[type=checkbox]{
     display: block;
     width: 6rem;
     height: 1.5rem;
-    /* top: 50%;
-    left: 50%; */
+    
     border-radius: 18px;
     background-color: var(--color2);
     z-index: -1;
@@ -678,8 +1108,8 @@ input[type=checkbox]{
 
 /*#endregion*/
 
-/*#region ------------------- OVERLAY --------------------*/
-.overlay{
+    /*#region ------------------- OVERLAY --------------------*/
+.overlay-contact{
     position: fixed;
     width: 100%;
     height: 100%;
@@ -696,23 +1126,23 @@ input[type=checkbox]{
 
 /*#region ------------------- RESPONSIVE TABLETTE --------*/
 @media all and (max-width: 991px) {
-/*#region header*/
-header{
-    background: transparent;
-}
+    /*#region header*/
+    header{
+        background: transparent;
+    }
 
-.toggle{
-    display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    position: relative;
-    /* margin: auto; */
-    z-index: 20;
-}
+    .toggle{
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        position: relative;
+        /* margin: auto; */
+        z-index: 20;
+    }
 
-.logo{
-    font-size: 1rem;
-    position: relative;
+    .logo{
+        font-size: 1rem;
+        position: relative;
         margin: auto;
         z-index: 20;
     }
@@ -819,4 +1249,71 @@ header{
     /*#endregion*/
 
 }
-/*#endregion*/
+/* #region ---responsive carousel--- */
+
+@media all and (max-width: 768px) {
+    .carousel{
+        width: 200px;
+        height: 200px;
+        position: relative;
+        display: flex;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    
+        perspective: 1000px;
+        transform-style: preserve-3d;
+    }
+    .btnDirection{
+        justify-content: center;
+    }
+    .dirButton{
+        top: 250px;
+    }
+
+    .modal-container{
+        position: absolute;
+        height: 140vh;
+        overflow-y: scroll;
+    }
+    
+    .modal{
+        flex-direction: column;
+        margin: 30px auto;
+    }
+
+    .modal h1{
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 27px;
+    }
+    .modal h2{
+        margin-bottom: 13px;
+    }
+    .modal p{
+        margin-top: 0;
+        margin-bottom: 13px;
+    }
+    .descriptif ul{
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+    .img-modal{
+        height: 630px;
+        width: 90%;
+    }
+    .referances{
+        width: 100%;
+        height: 160px;
+    }
+    .overlay{
+        position: fixed;
+    }
+}
+/* #endregion */
+
+/* #endregion */
