@@ -29,10 +29,8 @@ function resizeHandler(){
     }
     console.log(size);
     if(size== 'medium'){
-        console.log("oui");
         isMedium = true;
     }else{
-        console.log("non");
         isMedium = false;
     }
 }
@@ -116,36 +114,30 @@ function handleIndicator(el){
 
 //function de changement au scroll
 window.onscroll = function () {
-    if (document.documentElement.scrollTop >= 708 && document.documentElement.scrollTop < 1412) {
-        document.getElementsByClassName('navbar-bg')[0].style.top = "0px";
-        document.getElementsByClassName('navbar')[0].style.top = "0px";
-        document.getElementsByClassName('logo')[0].style.top = "0px";
-        if(!isMedium){
-            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1120px";
-        }else{
-            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-250px";
+    if(!isMedium){
+        if (document.documentElement.scrollTop >= 707 && document.documentElement.scrollTop < 1412) {
+            document.getElementsByClassName('navbar-bg')[0].style.top = "0px";
+            document.getElementsByClassName('navbar')[0].style.top = "0px";
+            document.getElementsByClassName('logo')[0].style.top = "0px";
+            console.log("medium non");
+            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-750px";
         }
-    }
-    else if (document.documentElement.scrollTop >= 31 && document.documentElement.scrollTop < 708) {
-        document.getElementsByClassName('navbar-bg')[0].style.top = "-120px";
-        document.getElementsByClassName('navbar')[0].style.top = "-120px";
-        document.getElementsByClassName('logo')[0].style.top = "-120px";
-        if(!isMedium){
-            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1100px";
-        }else{
-            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-200px";
+        else if (document.documentElement.scrollTop >= 31 && document.documentElement.scrollTop < 707) {
+            document.getElementsByClassName('navbar-bg')[0].style.top = "-120px";
+            document.getElementsByClassName('navbar')[0].style.top = "-120px";
+            document.getElementsByClassName('logo')[0].style.top = "-120px";
+            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-700px";
         }
-        
-    }
-    else {
-        document.getElementsByClassName("navbar-bg")[0].style.top = "-120px";
-        document.getElementsByClassName('navbar')[0].style.top = "0px";
-        document.getElementsByClassName('logo')[0].style.top = "0px";
-        if(!isMedium){
-            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-1100px";
-        }else{
-            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-200px";
+        else {
+            document.getElementsByClassName("navbar-bg")[0].style.top = "-120px";
+            document.getElementsByClassName('navbar')[0].style.top = "0px";
+            document.getElementsByClassName('logo')[0].style.top = "0px";
+            document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-700px";
         }
+
+    }else{
+        console.log("medium oui");
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-250px";
     }
 
     //#region nav section select au scroll
@@ -159,7 +151,6 @@ window.onscroll = function () {
             const hash = items[index].getAttribute("href");
             updateHash(hash);
             items[index].classList.contains('is-active') && handleIndicator(items[index]);
-
         }
 
     });

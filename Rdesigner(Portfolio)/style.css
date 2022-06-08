@@ -281,8 +281,8 @@ nav{
 
 nav a:hover{
     color: var(--color3);
-    font-family: var(--font2);
-    font-weight: 300;
+    /* font-family: var(--font2); */
+    /* font-weight: 300; */
     /* text-align: center; */
 }
 
@@ -387,7 +387,7 @@ h4{
     position: relative;
     top: -50px;
     left: -283px;
-    background-color: var(--color4);
+    /* background-color: var(--color4); */
     border-radius: 0 0 122px 0;
     z-index: 0;
 }
@@ -400,6 +400,7 @@ h4{
     /* top:-46px; */
     background: url('img/BackgroundAproposPanno.jpg') no-repeat top center;
     background-color: var(--color8);
+    background-origin: content-box;
     background-size: 400%;
     background-position-x: -920px;
     display: flex;
