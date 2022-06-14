@@ -11,7 +11,8 @@ const navbar = document.querySelector('nav');
 const navBarPos = navbar.getBoundingClientRect();
 const sections = document.querySelectorAll('section');
 const screenWidth ={small:0, medium:400,large:991};
-let isMedium = true;
+let isMedium;
+let isSmall;
 let paralaxAbout = "";
 
 //#endregion
@@ -35,6 +36,10 @@ function resizeHandler(){
     console.log(size);
     if(size== 'medium'){
         isMedium = true;
+        isSmall = false;
+    }else if(size== 'small'){
+        isMedium = false;
+        isSmall =true;
     }else{
         isMedium = false;
     }
@@ -101,9 +106,9 @@ function isElemmentInViewport(el) {
 //#region Scroll
 
 //Pour voir le scroll en px
-window.addEventListener('scroll', function (e){
-    this.console.log(document.documentElement.scrollTop);
-});
+// window.addEventListener('scroll', function (e){
+//     this.console.log(document.documentElement.scrollTop);
+// });
 
 function handleIndicator(el){
     //Boucler sur tous les items -> retirer la classe "is-active"
@@ -145,7 +150,7 @@ window.onscroll = function () {
 
     }else{
         console.log("medium oui");
-        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-250px";
+        document.getElementsByClassName('background-mokup')[0].style.backgroundPositionX = "-100px";
     }
 
     //#region nav section select au scroll
