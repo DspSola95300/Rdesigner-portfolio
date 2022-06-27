@@ -82,6 +82,15 @@ html{
     --refC4: url("img/Portfolio/FichierDeTravail/Photoshop/Macintosh/img/mac-os-7.jpg") no-repeat center center;
     --refC5: url("img/Portfolio/FichierDeTravail/Photoshop/Macintosh/img/SteveJobs.png") no-repeat center center;
     
+    --refD1: url("img/Portfolio/FichierDeTravail/Photoshop/Brokenglass/pexels-woodysmedia-4437979.jpg") no-repeat center center;
+    --refD2: url("img/Portfolio/FichierDeTravail/Photoshop/Brokenglass/broken-glass-texture-with-cracks-F9RMUF6.jpg") no-repeat center center;
+
+    --refE1: url("img/Portfolio/FichierDeTravail/Photoshop/Pyramide/20180411154114-6d257bda.jpg") no-repeat center center;
+
+    --refF1: url("img/Portfolio/FichierDeTravail/Photoshop/Voltface/modern-hipster-businessman-in-black-jacket-with-sh-26CWLEN.jpg") no-repeat center center;
+    --refF2: url("img/Portfolio/FichierDeTravail/Photoshop/Voltface/serious-nude-guy-with-sunglasses-in-winter-coat-po-TV4YT76.jpg") no-repeat center center;
+
+
     /* --refD1: url("img/Portfolio/FichierDeTravail/Photoshop/") no-repeat center center; */
 
     /* Icons */
@@ -988,7 +997,10 @@ footer a::before{
     box-shadow: 0px 10px 40px var(--color4);
     z-index: 100;
 }
-
+.form{
+    width: 100%;
+    padding: .5em;
+}
 form p{
     color: var(--color1);
     /* flex-direction: row; */
@@ -1048,84 +1060,119 @@ input[type=text], input[type=mail],input[type=tel], input::placeholder, textarea
 }
 
 /*#region checkbox*/
-#check-list{
+.container-checkbox{
+    max-width: 1200px;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: center;
 }
 
-input[type=checkbox]{
-    display: none;
-}
+.form-check{
+    --color7: #F1F2F1;
+    --border: #D1D5DB;
+    --cursor: #D19D4A;
+    --checked: #4B95D1;
+    --checked-cursor: rgb(60, 159, 151);
+    --halo: #c4dbf9;
 
-.checkbox{
-    cursor: pointer;
+    --check-width: 8em;
+
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 6rem;
-    height: 100%;
-    margin: 9px;
-    padding: 3px 18px;
-    border-radius: 18px;
-    border: solid 1px #021010;
-    background-color: var(--color6);
-
+    font-size: 24px;
     text-align: center;
-    white-space: nowrap;
-
-    overflow: hidden;
-    transition: all 1s ease;
+    margin: .5em;
+    padding: .1em;
 }
 
-#check-list label::after:active{
-    background-color: var(--color1);
-    position: relative;
-    display: block;
-    
-    z-index: -1;
-
-}
-
-/* .checkbox label::after{
-    content: "";
+.form-check input{
     position: absolute;
-    display: block;
-    width: 6rem;
-    height: 1.5rem;
-    
-    border-radius: 18px;
-    background-color: var(--color2);
-    z-index: -1;
-    transform: translateX(-6rem);
-    transition: all .4s ease-out;
-} */
-
-/* .checkbox:checked + label::after{
-    content: "";
-    position: absolute;
-    display: block;
-    width: 6rem;
-    height: 1.5rem;
-    border-radius: 18px;
-    background-color: var(--color2);
-
-    transform: translateX(0rem);
-} */
-
-/* .checkbox:checked::before{
-    content: "&";
-    background-color: var(--color6);
-    display: block;
-    width: max-content;
-    height: 50px;
-} */
-
-/* .checkbox-input{
     opacity: 0;
-    width: 0;
-    height: 0;
-} */
+}
+
+.form-check label{
+    display: grid;
+    width: fit-content;
+    grid-template-columns: var(--check-width) 1fr;
+    grid-template-areas: "checkbox";
+    /* gap: .7em; */
+    color: var(--color7);
+    cursor: pointer;
+}
+
+.form-check label span{
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    width: var(--check-width);
+    height: 1.5em;
+    border-radius: 1em;
+    background-color: #4B95D1;
+    z-index: -1;
+}
+
+.form-check label::before, .form-check label::after{
+    grid-area: checkbox;
+    content: "";
+    display: block;
+    margin-top: .1em;
+}
+
+.form-check label::before{  
+    width: 100%;
+    height: 1.5em;
+    border-radius: 1em;
+    /* border: solid 1px var(--border); */
+
+    line-height: calc(1.5em + 2px);
+    transition: background-color .3s, border-color .3s, box-shadow .3s;
+}
+
+.form-check label::after{
+    position: relative;
+    left: 2px;
+    top: 2px;
+    clip-path: inset(0% 100% 0% 0%);
+    height: 1.5em;
+    border-radius: 1em;
+    background-color: var(--cursor);
+    z-index: -1;
+    transition: all .3s;
+}
+
+.form-check input:checked +label{
+    color: black;
+}
+
+.form-check input:checked + label::before{
+    border-color: var(--cursor);
+}
+
+.form-check input:checked + label::after{
+    clip-path: inset(0% 0% 0% 0%);
+}
+
+.form-check input:focus + label::before{
+    box-shadow: 0 0 0 1px var(--halo);
+    border-color: var(--checked);
+}
+
+.form-check:nth-child(1) label::before{
+    content: "Branding";
+}
+
+.form-check:nth-child(2) label::before{
+    content: "Web";
+}
+
+.form-check:nth-child(3) label::before{
+    content: "Mobile App";
+}
+
+.form-check:nth-child(4) label::before{
+    content: "Autre";
+}
 
 /*#endregion*/
 
@@ -1280,7 +1327,7 @@ input[type=checkbox]{
 
     .formulaire{
         margin: 24px auto;
-        padding: 6px;
+        padding: 15px;
     }
     .block{
         flex-wrap: wrap;
@@ -1288,10 +1335,13 @@ input[type=checkbox]{
     .block p{
         margin-bottom: 18px;
     }
-    #check-list{
+    .container-checkbox{
         display: flex;
         align-items: center;
         flex-direction: column;
+    }
+    .form-check{
+        margin: 1px;
     }
 }
 /* #region ---responsive carousel--- */
