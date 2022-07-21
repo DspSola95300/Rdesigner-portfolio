@@ -1296,7 +1296,7 @@ input[type=text], input[type=mail],input[type=tel], input::placeholder, textarea
         width: 100%;
     }
     #presentation p{
-       padding: 0px 14px;
+       padding: 0px 51px;
     }
     #bg-title{
         margin-left: 51px;
@@ -1432,6 +1432,8 @@ input[type=text], input[type=mail],input[type=tel], input::placeholder, textarea
     #about{
         margin: -17px;
     }
+
+    
 }
 /* #endregion */
 
